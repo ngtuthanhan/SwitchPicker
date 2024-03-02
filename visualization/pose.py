@@ -77,6 +77,7 @@ def draw_pick_frames(
         image_pts, _ = cv2.projectPoints(axes, rvec, tvec, cam_mtx, cam_dist)
         image_pts = image_pts.squeeze(1).astype(np.int32)
         origin_pt = image_pts[3]
+        print(image_pts)
 
         cv2.line(image_bgr, origin_pt, image_pts[0], (255, 0, 0), 5)
         cv2.line(image_bgr, origin_pt, image_pts[1], (0, 255, 0), 5)

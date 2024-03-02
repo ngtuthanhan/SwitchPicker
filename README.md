@@ -61,9 +61,9 @@ To visualize the result, run
 ```
 python visualization/pose.py
 ```
-### Proposal Evaluation
-
-
+### Proposed Evaluation
+- Qualitative Evaluation by Visualization
+- Quantitative Evaluation using Average Reprojection Error
 
 # Acknowledgements:
 Source code was implemented based on the following source:

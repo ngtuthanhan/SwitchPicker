@@ -3,3 +3,4 @@
 mmdetection/
 data/images
 doc/
+pose_v2.py

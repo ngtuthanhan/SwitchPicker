@@ -54,25 +54,25 @@ def find_pick_points(segmentation_masks):
                 pick_points.append((cx, cy, theta))
 
     return pick_points
+if __name__ == "__main__":
+    with open('./data/test_ids.txt', 'r') as f:
+        test_ids_str = f.read()
+        test_ids_list = test_ids_str.split('\n')
 
-with open('./data/test_ids.txt', 'r') as f:
-    test_ids_str = f.read()
-    test_ids_list = test_ids_str.split('\n')
-
-for test_id in tqdm(test_ids_list):
-    test_file_sample = f'./data/images/{test_id}.png'
-    img = mmcv.imread(test_file_sample,channel_order='rgb')
-    result = inference_detector(model, img)
-    pred_score_thr = 0.5
-    pred_scores = result.pred_instances.scores
-    selected_indices = torch.where(pred_scores >= pred_score_thr)[0]
-    filtered_scores = pred_scores[selected_indices]
-    filtered_masks = result.pred_instances.masks[selected_indices]
-    filtered_labels = result.pred_instances.labels[selected_indices]
-    filtered_bboxes = result.pred_instances.bboxes[selected_indices]
-    filtered_masks_in_top = [mask for mask, label in zip(filtered_masks, filtered_labels) if label == 0]
-    pick_points = find_pick_points(filtered_masks_in_top)
-    
-    pick_points_str = '\n'.join([' '.join(map(str, item)) for item in pick_points])
-    with open(f'./result/part_1/{test_id}.txt', 'w') as f:
-        f.write(pick_points_str)
+    for test_id in tqdm(test_ids_list):
+        test_file_sample = f'./data/images/{test_id}.png'
+        img = mmcv.imread(test_file_sample,channel_order='rgb')
+        result = inference_detector(model, img)
+        pred_score_thr = 0.5
+        pred_scores = result.pred_instances.scores
+        selected_indices = torch.where(pred_scores >= pred_score_thr)[0]
+        filtered_scores = pred_scores[selected_indices]
+        filtered_masks = result.pred_instances.masks[selected_indices]
+        filtered_labels = result.pred_instances.labels[selected_indices]
+        filtered_bboxes = result.pred_instances.bboxes[selected_indices]
+        filtered_masks_in_top = [mask for mask, label in zip(filtered_masks, filtered_labels) if label == 0]
+        pick_points = find_pick_points(filtered_masks_in_top)
+        
+        pick_points_str = '\n'.join([' '.join(map(str, item)) for item in pick_points])
+        with open(f'./result/part_1/{test_id}.txt', 'w') as f:
+            f.write(pick_points_str)

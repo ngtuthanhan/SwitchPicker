@@ -56,7 +56,7 @@ def draw_pick_frames(
     """Draw pick frames."""
     cam_mtx = np.array(cam_mtx, dtype=np.float32)
     cam_dist = np.array(cam_dist, dtype=np.float32)
-
+    
     axes = (
         np.array(
             [
@@ -116,5 +116,5 @@ def visualize_all_test_images():
 if __name__ == "__main__":
     # visualize_all_training_images()
     # visualize_all_test_images()
-    visualize_training_image("100")
+    # visualize_training_image("100")
     visualize_test_image("102")
