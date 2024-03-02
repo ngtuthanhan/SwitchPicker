@@ -1,4 +1,4 @@
-import config
+import preprocess.config as config
 import mmcv
 import torch
 import os

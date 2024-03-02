@@ -23,23 +23,48 @@ unzip image.zip
 ### Preprocess Data
 I have already done the data preprocessing with Coco format. However, you can reproduce by
 ```
-python covert_to_coco_annotation.py
+python preprocess/covert_to_coco_annotation.py
 ```
 You can easily check by
 ```
-python check_coco_annotation.py
+python preprocess/check_coco_annotation.py
 ```
-By this,
-
-
+Run config file by
+```
+python preprocess/config.py
+```
 ## Usage:
 ### Training
+Execute
+```
+python mmdetection/tools/train.py mmdetection/configs/mask_rcnn/mask-rcnn_r50-caffe_fpn_ms-poly-3x_switch.py
+```
+Or you can download pretrained checkpoint at [Google Drive files](https://drive.google.com/file/d/1-_yCO7zStXzGlQYRGYla_KKfuywWqYeg/view?usp=sharing). Or execute
+```
+gdown 1-_yCO7zStXzGlQYRGYla_KKfuywWqYeg -O mmdetection/tutorial_exps/
+```
+### Picking Point Extraction
+Execute
+```
+python picking_point.py
+```
+To visualize the result, run
+```
+python visualization/picking.py
+```
+### Pose Estimation 
+Execute
+```
+python pose_estimation.py
+```
+To visualize the result, run
+```
+python visualization/pose.py
+```
+### Proposal Evaluation
 
-### Preprocess Data
-
-### 
 
 
 # Acknowledgements:
-Source code was implemented based on the following sources:
+Source code was implemented based on the following source:
 - [Mmdetection - OpenMM Lab](https://github.com/open-mmlab/mmdetection)
