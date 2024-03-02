@@ -1,5 +1,5 @@
 **/__pycache__/
 **/.ipynb_checkpoints/
 mmdetection/
-data/
+data/images
 doc/

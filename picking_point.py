@@ -18,15 +18,12 @@ model = init_detector(cfg, checkpoint_file, device='cpu')
 def find_pick_points(segmentation_masks):
     pick_points = []
 
-    # Iterate over each segmentation mask tensor
     for idx, mask_tensor in enumerate(segmentation_masks):
-        # Convert PyTorch tensor to NumPy array
         mask = mask_tensor.cpu().numpy().astype(np.uint8) * 255  # Convert to uint8 for OpenCV functions
 
         # Switch Segmentation
         contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-        # Iterate over each contour in the segmentation mask
         for contour in contours:
             # Calculate the rotated bounding rectangle of the contour
             rect = cv2.minAreaRect(contour)
@@ -37,7 +34,6 @@ def find_pick_points(segmentation_masks):
             side1 = np.linalg.norm(box[0] - box[1])
             side2 = np.linalg.norm(box[1] - box[2])
 
-            # Determine the longest side and its perpendicular direction
             if side1 > side2:
                 long_side = box[0] - box[1]
                 perpendicular_direction = np.array([-long_side[1], long_side[0]], dtype=float)  # Specify dtype=float
@@ -45,21 +41,15 @@ def find_pick_points(segmentation_masks):
                 long_side = box[1] - box[2]
                 perpendicular_direction = np.array([-long_side[1], long_side[0]], dtype=float)  # Specify dtype=float
 
-            # Normalize the perpendicular direction vector
             perpendicular_direction /= np.linalg.norm(perpendicular_direction)
             
 
-            # Calculate the angle with respect to the x-axis of the image
             theta = np.arctan2(perpendicular_direction[0], perpendicular_direction[1]) * 180 / np.pi
-            # theta =  -theta + 90
 
-            # Calculate the centroid of the contour (center of mass)
             M = cv2.moments(contour)
             if M["m00"] != 0:
                 cx = M["m10"] / M["m00"]
                 cy = M["m01"] / M["m00"]
-
-                # Append (cx, cy, theta) to pick_points list
                 pick_points.append((cx, cy, theta))
 
     return pick_points

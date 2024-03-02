@@ -5,7 +5,7 @@
 # Description:
 [Provide a brief overview of your project, including its purpose and main features.]
 
-I also provide Colab tutorial [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](demo/MMDet_Tutorial.ipynb) 
+I also provide Colab tutorial [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13E2_Rf_l4epgM6soDWsfcKHJEh05rt2i?usp=sharing) 
 
 ## Set up:
 ### Installation
