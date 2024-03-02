@@ -17,7 +17,7 @@ bash requirements.sh
 You can download [Google Drive files](https://drive.google.com/file/d/1i1UAWozECxv2IZbOwKEgLxJVIpGeUZQ3), unzip them and place them in the data/images directory. Or execute
 ```
 gdown 1i1UAWozECxv2IZbOwKEgLxJVIpGeUZQ3
-unzip image.zip -t data
+unzip image.zip
 ```
 
 ### Preprocess Data

@@ -12,7 +12,8 @@ from mmdet.apis import init_detector, inference_detector
 
 cfg = config.cfg
 checkpoint_file = './mmdetection/tutorial_exps/epoch_12.pth'
-model = init_detector(cfg, checkpoint_file, device='cpu')
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+model = init_detector(cfg, checkpoint_file, device=device)
 
 
 def find_pick_points(segmentation_masks):
