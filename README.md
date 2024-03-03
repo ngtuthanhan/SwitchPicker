@@ -19,7 +19,7 @@ Execute
 bash requirements.sh
 ```
 ### Download Data
-You can download [Google Drive files](https://drive.google.com/file/d/1i1UAWozECxv2IZbOwKEgLxJVIpGeUZQ3), unzip them and place them in the data/images directory. Or execute
+You can download [Google Drive files](https://drive.google.com/file/d/1i1UAWozECxv2IZbOwKEgLxJVIpGeUZQ3), unzip them and place them in the `data/images` directory. Or execute
 ```
 gdown 1i1UAWozECxv2IZbOwKEgLxJVIpGeUZQ3
 unzip image.zip
@@ -44,7 +44,7 @@ Execute
 ```
 python mmdetection/tools/train.py mmdetection/configs/mask_rcnn/mask-rcnn_r50-caffe_fpn_ms-poly-3x_switch.py
 ```
-Or you can download pretrained checkpoint at [Google Drive files](https://drive.google.com/file/d/1-_yCO7zStXzGlQYRGYla_KKfuywWqYeg/view?usp=sharing). Or execute
+Or you can download the pretrained checkpoint at [Google Drive files](https://drive.google.com/file/d/1-_yCO7zStXzGlQYRGYla_KKfuywWqYeg/view?usp=sharing) and put it into `mmdetection/tutorial_exps`. Or execute
 ```
 gdown 1-_yCO7zStXzGlQYRGYla_KKfuywWqYeg -O mmdetection/tutorial_exps/
 ```
