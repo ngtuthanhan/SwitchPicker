@@ -44,7 +44,6 @@ def find_pick_points(segmentation_masks):
 
             perpendicular_direction /= np.linalg.norm(perpendicular_direction)
             
-
             theta = np.arctan2(perpendicular_direction[0], perpendicular_direction[1]) * 180 / np.pi
 
             M = cv2.moments(contour)

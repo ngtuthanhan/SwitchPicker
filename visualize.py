@@ -77,8 +77,6 @@ def draw_pick_frames(
         rvec = cv2.Rodrigues(rmat)[0]
       
         image_pts, _ = cv2.projectPoints(axes, rvec, tvec, cam_mtx, cam_dist)
-        # _, rvecs,tvecs = cv2.solveP3P(axes[np.array([3,0,1])], image_pts[np.array([3,0,1])], cam_mtx, cam_dist, 5)
-        # image_pts, _ = cv2.projectPoints(axes, rvecs[0], tvecs[0], cam_mtx, cam_dist)
         image_pts = image_pts.squeeze(1).astype(int)
 
         origin_pt = image_pts[3]
