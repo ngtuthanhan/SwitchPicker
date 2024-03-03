@@ -9,7 +9,8 @@ The proposed model utilizes several steps:
 1. **Instance Segmentation**: Mask R-CNN is used for instance segmentation to identify individual objects in the image.
 2. **Pick Point Extraction**: Pick points are determined by calculating the center of mass of each detected object, and the direction is determined using a simple rule-based algorithm (perpendicular to the long side of the object's bounding box).
 3. **Pose Estimation**: Pose estimation is performed using the solveP3P function of OpenCV to obtain the rotation and translation matrices.
-I also provide Colab tutorial [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13E2_Rf_l4epgM6soDWsfcKHJEh05rt2i?usp=sharing) 
+
+I also provide Colab tutorial for end-to-end inference [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13E2_Rf_l4epgM6soDWsfcKHJEh05rt2i?usp=sharing) 
 
 ## Set up:
 ### Installation
