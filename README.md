@@ -2,7 +2,7 @@
   Switch Picking Problem
 </h1>
 
-# Description:
+# Description
 The Switch Picking Problem revolves around finding pick points for a robot arm in an image. A top-view camera is set up to capture a tray of randomly-placed switches. After capturing, the computer vision program detects all the pick points, and then the robot arm moves to the desired place to pick the object with a suction cup. 
 
 The proposed model utilizes several steps:
@@ -12,7 +12,7 @@ The proposed model utilizes several steps:
 
 I also provide Colab tutorial for end-to-end inference [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13E2_Rf_l4epgM6soDWsfcKHJEh05rt2i?usp=sharing) 
 
-## Set up:
+## Set up
 ### Installation
 Execute
 ```
@@ -38,7 +38,7 @@ Run config file by
 ```
 python preprocess/config.py
 ```
-## Usage:
+## Usage
 ### Training
 Execute
 ```
